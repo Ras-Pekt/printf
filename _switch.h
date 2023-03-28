@@ -1,13 +1,17 @@
 #ifndef _SWITCH_H
 #define _SWITCH_H
 
-
 #include"main.h"
 #include<stdarg.h>
 #include<stdio.h>
 
 int (*conv_specifier[])(va_list) = {print_char, print_string};
-
+/**
+ * _switch - iterates through the format string
+ * @format: input string
+ * @uv: unkown argments from va_list
+ * Return: count of elements printed
+ */
 int _switch(char format, va_list uv)
 {
 	int count = 0, f_count;

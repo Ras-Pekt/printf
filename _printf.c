@@ -3,12 +3,12 @@
 #include"_switch.h"
 #include<stdarg.h>
 #include<stdio.h>
+
 /**
  * _printf - produces output according to a format.
  * @format: last named argument
  * Return: number of characters printed
  */
-
 int _printf(const char *format, ...)
 {
 	va_list uv;
@@ -32,5 +32,5 @@ int _printf(const char *format, ...)
 		format++;
 	}
 	va_end(uv);
-	return (count - 1);
+	return (count);
 }
