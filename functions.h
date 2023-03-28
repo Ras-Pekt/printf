@@ -27,7 +27,10 @@ int print_string(va_list uv)
 	char *str = va_arg(uv, char *);
 
 	if (str == NULL)
-		str = "(null)";
+	{
+		str = "";
+		_putchar(*str);
+	}
 	while (*str)
 	{
 		_putchar(*str);
