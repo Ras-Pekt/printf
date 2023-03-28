@@ -5,7 +5,7 @@
 #include<stdarg.h>
 #include<stdio.h>
 
-int (*conv_specifier[])(va_list) = {print_char, print_string};
+int (*conv_specifier[])(va_list) = {print_char, print_string, print_decimal, print_interger};
 /**
  * _switch - iterates through the format string
  * @format: input string
@@ -24,6 +24,14 @@ int _switch(char format, va_list uv)
 		break;
 	case 's':
 		f_count = conv_specifier[1](uv);
+		count += f_count;
+		break;
+	case 'd':
+		f_count = conv_specifier[2](uv);
+		count += f_count;
+		break;
+	case 'i':
+		f_count = conv_specifier[3](uv);
 		count += f_count;
 		break;
 	case '%':
