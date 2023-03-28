@@ -2,7 +2,6 @@
 #include"functions.h"
 #include"_switch.h"
 #include<stdarg.h>
-#include<stdio.h>
 
 /**
  * _printf - produces output according to a format.
