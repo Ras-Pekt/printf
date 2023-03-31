@@ -1,10 +1,6 @@
-#ifndef FUNCTIONS_H
-#define FUNCTIONS_H
-
 #include"main.h"
 #include<stdarg.h>
 #include<stdio.h>
-
 /**
  * print_char - prints a character to stdout
  * @uv: input unknown varialble from va_list
@@ -36,30 +32,6 @@ int print_string(va_list uv)
 	return (count);
 }
 /**
- * print_recur - recursively prints each digit in number
- * @n: input integer from va_list
- * Return: count of digits printed
- */
-int print_recur(int n)
-{
-	int count = 0;
-
-	if (n < 0)
-	{
-		_putchar('-');
-		n = -n;
-		count++;
-	}
-	if (n >= 10)
-	{
-		count += print_recur(n / 10);
-	}
-	_putchar((n % 10) + '0');
-
-	count++;
-	return (count);
-}
-/**
  * print_decimal - prints any base-10 integer
  * @uv: input unknown varialble from va_list
  * Return: count of digits printed
@@ -72,4 +44,27 @@ int print_decimal(va_list uv)
 	count = print_recur(n);
 	return (count);
 }
-#endif
+/**
+ * print_rev - prints a string in reverse
+ * @uv: input unknown varialble from va_list
+ * Return: count of digits printed
+ */
+int print_rev(va_list uv)
+{
+	int count, strCount;
+	char *str = va_arg(uv, char *);
+
+	if (str == NULL)
+		str = "(null)";
+	while (*str)
+	{
+		str++;
+		strCount++;
+	}
+	count = strCount;
+	for (count = count - 1; count >= 0; count--)
+	{
+		_putchar(str[count]);
+	}
+	return (strCount);
+}

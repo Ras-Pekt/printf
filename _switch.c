@@ -1,10 +1,14 @@
-#ifndef _SWITCH_H
-#define _SWITCH_H
-
 #include"main.h"
 #include<stdarg.h>
 
-int (*conv_specifier[])(va_list) = {print_char, print_string, print_decimal};
+int (*conv_specifier[])(va_list) = {
+				print_char,
+				print_string,
+				print_decimal,
+				print_hex,
+				print_hex_upper,
+				print_oct, print_rev
+				};
 /**
  * _switch - iterates through the format string
  * @format: input string
@@ -33,6 +37,22 @@ int _switch(char format, va_list uv)
 		f_count = conv_specifier[2](uv);
 		count += f_count;
 		break;
+	case 'x':
+		f_count = conv_specifier[3](uv);
+		count += f_count;
+		break;
+	case 'X':
+		f_count = conv_specifier[4](uv);
+		count += f_count;
+		break;
+	case 'o':
+		f_count = conv_specifier[5](uv);
+		count += f_count;
+		break;
+	case 'r':
+		f_count = conv_specifier[6](uv);
+		count += f_count;
+		break;
 	case '%':
 		_putchar('%');
 		count++;
@@ -40,5 +60,3 @@ int _switch(char format, va_list uv)
 	}
 	return (count);
 }
-
-#endif
